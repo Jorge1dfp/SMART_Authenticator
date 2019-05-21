@@ -1,17 +1,9 @@
 import tkinter as tk
 import cv2
-import numpy as np
-
-
-window = tk.Tk()
-
-
-window.title("S.A.R.A.H")
-
-window.geometry("1920x1080")
-window.attributes("-fullscreen", False)
+import pyautogui
 
 def yo():
+    print("Capping")
     cap = cv2.VideoCapture(0)
     ret = True
     face_cascade = cv2.CascadeClassifier(
@@ -35,15 +27,39 @@ def yo():
         cv2.imshow('', frame)
 
         # breaks loop when q is pressed and closes all the windows
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
+        if dummy != True:
+            cap.release
             cv2.destroyAllWindows()
-            break
+            cv2.destroyWindow('"Smart-Authenticator') 
+            
+
+def desty():
+    dummy = False
+    print("ded")
+    window.mainloop() 
+    
+    #print("Stap")
+window = tk.Tk()
+
+
+window.title("Smart-Authenticator")
+dummy = True
+window.geometry("450x500")
+window.attributes("-fullscreen", False)
+panel = tk.Label(window)
+
+
+panel.pack(side = "bottom", fill = "both", expand = "yes")
+panel.configure(background="white")
+
+button = tk.Button(panel, text="Check Face", fg="green", command=yo)
+button.pack(side=tk.LEFT)
+
+button2 = tk.Button(panel, text="End", fg="red", command=desty)
+button2.pack(side=tk.LEFT)
+
 
 if __name__ == "__main__":   
-    window = tk.Tk() 
-    window.title("S.A.R.A.H")
-    window.geometry("500x500")
    
     def task():
         #print("hello")
@@ -51,7 +67,7 @@ if __name__ == "__main__":
     window.after(2000, task)
 
     print("No")
-    yo()
+    #yo()
     # initializing our video feed
 
 
