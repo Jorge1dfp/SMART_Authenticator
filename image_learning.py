@@ -47,10 +47,8 @@ for root, dirs, files in os.walk(image_dir):
 # print(y_label)
 # print(x_train)
 
-with open("labels.picle", 'wb') as f:
+with open("labels.pickle", 'wb') as f:
     pickle.dump(label_ids, f)
 
-# recognizer.train(x_train, np.array(y_label))
-# recognizer.save("trainer.yml")
-
-print(help(cv2))
+recognizer.train(x_train, np.array(y_label))
+recognizer.save("trainer.yml")
