@@ -4,11 +4,13 @@ import numpy as np
 from PIL import Image
 import pickle
 
+print("Test_Case")
+
 BASE_dir = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(BASE_dir, "pictures")
 
 face_cascade = cv2.CascadeClassifier(
-    r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
+    r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\haarcascade_frontalface_default.xml")
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
