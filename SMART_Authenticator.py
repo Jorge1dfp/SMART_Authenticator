@@ -3,11 +3,12 @@ import numpy as np
 import pickle
 import os
 
+
 def primary():
     print("Authenticator Opened")
-    
 
-    face_cascade = cv2.CascadeClassifier(r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\haarcascade_frontalface_default.xml")
+    face_cascade = cv2.CascadeClassifier(
+        r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
     cv2.startWindowThread()
     recognizer = cv2.face.LBPHFaceRecognizer_create()
     recognizer.read("trainer.yml")
@@ -47,9 +48,8 @@ def primary():
             cap.release()
             cv2.destroyAllWindows()
             break
-            
+
+
 def close():
     cv2.destroyAllWindows()
     print("no")
-
-

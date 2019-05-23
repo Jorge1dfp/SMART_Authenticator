@@ -11,7 +11,7 @@ def user_maker(x):
         cv2.imshow("user maker", frame)
 
         if cv2.waitKey(1) & 0xFF == ord('c'):
-            img = "pictures" + x
+            img = "C://Users//Jorge Flores//PycharmProjects//SMART_Authenticator//pictures//" + x
             cv2.imwrite(img, frame)
             cap.release()
             cv2.destroyAllWindows()
