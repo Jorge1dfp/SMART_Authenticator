@@ -9,13 +9,13 @@ import pickle
 print("trainer processed")
 
 BASE_dir = os.path.dirname(os.path.abspath(__file__))
-image_dir = os.path.join(BASE_dir, r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\pictures")
+image_dir = os.path.join(BASE_dir, "pictures")
 
-face_cascade = cv2.CascadeClassifier(r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\haarcascade_frontalface_default.xml")
+face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-current_id = ("Yuh")
+current_id = (0)
 label_ids = {}
 # number values of the labels
 y_label = []

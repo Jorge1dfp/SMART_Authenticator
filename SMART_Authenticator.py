@@ -10,7 +10,7 @@ def primary():
     face_cascade = cv2.CascadeClassifier(r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\haarcascade_frontalface_default.xml")
     cv2.startWindowThread()
     recognizer = cv2.face.LBPHFaceRecognizer_create()
-    recognizer.read(r"C:\Users\T3kn1kal\eclipse-workspace\Unit-7\src\SMART_Authenticator\trainer.yml")
+    recognizer.read("trainer.yml")
 
     # labels = {"person_name": 1}
     # with open("labels.pickle", 'rb') as f:

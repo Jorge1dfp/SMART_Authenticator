@@ -14,9 +14,9 @@ def desty():
     SA.close
 
 def actual():
-    names = {"user1.png", "user2.png", "user3.png"}
-    for x in names:
-        UM.user_maker(x)
+    UM.user_maker("user1.png")
+    UM.user_maker("user2.png")
+    UM.user_maker("user3.png")
     
 window = tk.Tk()
 
