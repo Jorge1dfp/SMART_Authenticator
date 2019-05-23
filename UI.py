@@ -4,6 +4,7 @@ import pyautogui
 import os
 import image_learning
 import SMART_Authenticator as SA
+import user_maker as UM
 
 def yo():
     SA.primary()
@@ -12,8 +13,11 @@ def desty():
     print("Hit")
     SA.close
 
-
-
+def actual():
+    names = {"user1.png", "user2.png", "user3.png"}
+    for x in names:
+        UM.user_maker(x)
+    
 window = tk.Tk()
 
 window.title("Smart-Authenticator")
@@ -31,7 +35,7 @@ button.pack(side=tk.LEFT)
 button2 = tk.Button(panel, text="Quit", fg="red", command=desty)
 button2.pack(side=tk.LEFT)
 
-button3 = tk.Button(panel, text="CaptureFace", fg="red", command=desty)
+button3 = tk.Button(panel, text="CaptureFace", fg="red", command=actual)
 button3.pack(side=tk.LEFT)
 
 
@@ -44,6 +48,9 @@ if __name__ == "__main__":
 
     print("No")
     # initializing our video feed
+
+
+    
 
 
 
