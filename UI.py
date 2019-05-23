@@ -2,7 +2,7 @@ import tkinter as tk
 import cv2
 import pyautogui
 import os
-import image_learning
+import image_learning as IM
 import SMART_Authenticator as SA
 import user_maker as UM
 
@@ -17,6 +17,7 @@ def actual():
     UM.user_maker("user1.png")
     UM.user_maker("user2.png")
     UM.user_maker("user3.png")
+    IM.image_learning()
     
 window = tk.Tk()
 
@@ -46,7 +47,7 @@ if __name__ == "__main__":
         window.after(2000, task)  # reschedule event in 2 seconds
     window.after(2000, task)
 
-    print("No")
+    print("Solid")
     # initializing our video feed
 
 
