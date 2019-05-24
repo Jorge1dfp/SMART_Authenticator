@@ -12,8 +12,7 @@ def image_learning():
     BASE_dir = os.path.dirname(os.path.abspath(__file__))
     image_dir = os.path.join(BASE_dir, "pictures")
 
-    face_cascade = cv2.CascadeClassifier(
-        r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
+    face_cascade = cv2.CascadeClassifier("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//haarcascade_frontalface_default.xml")
 
     recognizer = cv2.face.LBPHFaceRecognizer_create()
 

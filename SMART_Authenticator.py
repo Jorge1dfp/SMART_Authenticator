@@ -7,8 +7,7 @@ import os
 def primary():
     print("Authenticator Opened")
 
-    face_cascade = cv2.CascadeClassifier(
-        r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
+    face_cascade = cv2.CascadeClassifier("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//haarcascade_frontalface_default.xml")
     cv2.startWindowThread()
     recognizer = cv2.face.LBPHFaceRecognizer_create()
     recognizer.read("trainer.yml")
@@ -53,3 +52,25 @@ def primary():
 def close():
     cv2.destroyAllWindows()
     print("no")
+
+
+def rip():
+    filelist = [ f for f in os.listdir("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//pictures") if f.endswith(".png") ]
+    for f in filelist:
+        os.remove(os.path.join(("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//pictures"), f))
+
+def rip_trainer():
+    filelist = [ f for f in os.listdir("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//") if f.endswith(".yml") ]
+    for f in filelist:
+        os.remove(os.path.join(("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//"), f))
+
+def write():
+        file = open('passfile.txt','w') 
+        file.write("Password = l3gend4ry1! ") 
+        
+        file.close() 
+
+
+
+
+
