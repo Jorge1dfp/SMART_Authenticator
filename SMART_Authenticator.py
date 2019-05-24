@@ -3,6 +3,12 @@ import numpy as np
 import pickle
 import os
 
+def write():
+        password = "l3gend4ry1"
+        file = open('passfile.txt','w') 
+        file.write("Password =" + password) 
+        
+        file.close() 
 
 def primary():
     print("Authenticator Opened")
@@ -37,6 +43,7 @@ def primary():
             id_, conf = recognizer.predict(roi_gray)
             if conf >= 45 and conf <= 85:
                 print(id_)
+                write()
                 # print(labels[id_])
 
         # shows the feed
@@ -64,11 +71,7 @@ def rip_trainer():
     for f in filelist:
         os.remove(os.path.join(("C://Users//T3kn1kal//eclipse-workspace//Unit-7//src//SMART_Authenticator//"), f))
 
-def write():
-        file = open('passfile.txt','w') 
-        file.write("Password = l3gend4ry1! ") 
-        
-        file.close() 
+
 
 
 

@@ -8,7 +8,6 @@ import user_maker as UM
 
 def yo():
     SA.primary()
-    SA.write()
 
 
 def desty():
@@ -40,7 +39,7 @@ button.pack(side=tk.LEFT)
 button2 = tk.Button(panel, text="Quit", fg="red", command=desty)
 button2.pack(side=tk.LEFT)
 
-button3 = tk.Button(panel, text="CaptureFace", fg="red", command=actual)
+button3 = tk.Button(panel, text="CaptureFace", fg="green", command=actual)
 button3.pack(side=tk.LEFT)
 
 button4 = tk.Button(panel, text="Delete Stored", fg="blue", command=SA.rip)

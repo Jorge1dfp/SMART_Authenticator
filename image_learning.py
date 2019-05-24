@@ -5,10 +5,11 @@ from PIL import Image
 import pickle
 
 
+
 def image_learning():
 
 
-    print("trainer happen")
+    print("training set")
     BASE_dir = os.path.dirname(os.path.abspath(__file__))
     image_dir = os.path.join(BASE_dir, "pictures")
 
