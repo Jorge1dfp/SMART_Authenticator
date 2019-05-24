@@ -11,7 +11,7 @@ def yo():
 
 
 def desty():
-    print("Hit")
+    print("Audi")
     SA.close
 
 
@@ -33,19 +33,19 @@ panel = tk.Label(window)
 panel.pack(side="bottom", fill="both", expand="yes")
 panel.configure(background="white")
 
-button = tk.Button(panel, text="Check Face", fg="green", command=yo)
+button = tk.Button(panel, text="Check Face", fg="black", bg="green", command=yo)
 button.pack(side=tk.LEFT)
 
-button2 = tk.Button(panel, text="Quit", fg="red", command=desty)
+button2 = tk.Button(panel, text="Quit", fg="black", bg="red", command=desty)
 button2.pack(side=tk.LEFT)
 
-button3 = tk.Button(panel, text="CaptureFace", fg="green", command=actual)
+button3 = tk.Button(panel, text="CaptureFace", fg="black", bg="green", command=actual)
 button3.pack(side=tk.LEFT)
 
-button4 = tk.Button(panel, text="Delete Stored", fg="blue", command=SA.rip)
+button4 = tk.Button(panel, text="Delete Stored", fg="black", bg="blue", command=SA.rip)
 button4.pack(side=tk.LEFT)
 
-button5 = tk.Button(panel, text="Clear Trainer", fg="blue", command=SA.rip_trainer)
+button5 = tk.Button(panel, text="Clear Trainer", fg="black", bg="blue", command=SA.rip_trainer)
 button5.pack(side=tk.LEFT)
 
 if __name__ == "__main__":
@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     window.after(2000, task)
 
-    print("No")
+    print("UI Launched")
     # initializing our video feed
 
 window.mainloop()
