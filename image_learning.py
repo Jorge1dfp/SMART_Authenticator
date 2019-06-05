@@ -4,51 +4,54 @@ import numpy as np
 from PIL import Image
 import pickle
 
-BASE_dir = os.path.dirname(os.path.abspath(__file__))
-image_dir = os.path.join(BASE_dir, "pictures")
 
-face_cascade = cv2.CascadeClassifier(
-    r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
+def image_learning():
+    print("training set")
+    BASE_dir = os.path.dirname(os.path.abspath(__file__))
+    image_dir = os.path.join(BASE_dir, "pictures")
 
-recognizer = cv2.face.LBPHFaceRecognizer_create()
+    face_cascade = cv2.CascadeClassifier(
+        r"C:\Users\Jorge Flores\PycharmProjects\SMART_Authenticator\haarcascade_frontalface_default.xml")
 
-current_id = 0
-label_ids = {}
-# number values of the labels
-y_label = []
-# number values of the images
-x_train = []
+    recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-for root, dirs, files in os.walk(image_dir):
-    for file in files:  
-        if file.endswith("png") or file.endswith("jpg"):
-            path = os.path.join(root, file)
-            label = os.path.basename(os.path.dirname(path).replace("", "-").lower())
-            # print(label, path)
-            if not label in label_ids:
-                label_ids[label] = current_id
-                current_id = current_id + 1
-            id_ = label_ids[label]
-            # print(label_ids)
-            # y_label.append(label)
-            # x_train.append(path)
-            # turns image gray
-            pil_image = Image.open(path).convert("L")
-            # converts image to numerical value
-            image_array = np.array(pil_image, "uint8")
-            # print(image_array)
-            face = face_cascade.detectMultiScale(image_array)
+    current_id = 0
+    label_ids = {}
+    # number values of the labels
+    y_label = []
+    # number values of the images
+    x_train = []
 
-            for (x, y, w, h) in face:
-                roi = image_array[y:y + h, x:x + h]
-                x_train.append(roi)
-                y_label.append(id_)
+    for root, dirs, files in os.walk(image_dir):
+        for file in files:
+            if file.endswith("png") or file.endswith("jpg"):
+                path = os.path.join(root, file)
+                label = os.path.basename(os.path.dirname(path).replace("", "-").lower())
+                # print(label, path)
+                if not label in label_ids:
+                    label_ids[label] = current_id
+                    current_id = current_id + 1
+                id_ = label_ids[label]
+                # print(label_ids)
+                # y_label.append(label)
+                # x_train.append(path)
+                # turns image gray
+                pil_image = Image.open(path).convert("L")
+                # converts image to numerical value
+                image_array = np.array(pil_image, "uint8")
+                # print(image_array)
+                face = face_cascade.detectMultiScale(image_array)
 
-# print(y_label)
-# print(x_train)
+                for (x, y, w, h) in face:
+                    roi = image_array[y:y + h, x:x + h]
+                    x_train.append(roi)
+                    y_label.append(id_)
 
-with open("labels.pickle", 'wb') as f:
-    pickle.dump(label_ids, f)
+    # print(y_label)
+    # print(x_train)
 
-recognizer.train(x_train, np.array(y_label))
-recognizer.save("trainer.yml")
+    with open("labels.pickle", 'wb') as f:
+        pickle.dump(label_ids, f)
+
+    recognizer.train(x_train, np.array(y_label))
+    recognizer.save("trainer.yml")
